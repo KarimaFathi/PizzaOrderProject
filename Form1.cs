@@ -206,15 +206,24 @@ namespace PizzaProject
            
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        void ResetForm()
         {
+            //reset groups
             grpCrustType.Enabled = true;
             grpSize.Enabled = true;
             grpWhereToEat.Enabled = true;
             grpToppings.Enabled = true;
-            rdEatIn.Checked = true;
+
+            //reset size
             rdSmallSize.Checked = true;
+
+            //reset crust type
             rdThinCrust.Checked = true;
+
+            //reset where to eat 
+            rdEatIn.Checked = true;
+
+            //reset toppings
             chkExtraCheese.Checked = false;
             chkMushrooms.Checked = false;
             chkTomatoes.Checked = false;
@@ -222,10 +231,17 @@ namespace PizzaProject
             chkOlives.Checked = false;
             chkGreenPepper.Checked = false;
 
-            ToppingsTextBox.Text = "No toppings !";
-            UpdateTotalPrice();
+            //reset Order button
+            btnOrderPizza.Enabled = true;
 
         }
-   
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
+
+        
+
     }
 }
