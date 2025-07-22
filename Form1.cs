@@ -12,7 +12,7 @@ namespace PizzaProject
 {
     public partial class Form1 : Form
     {
-        int totalTags = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,33 +23,40 @@ namespace PizzaProject
 
         }
 
-        private void rdSmallSize_CheckedChanged(object sender, EventArgs e)
+        private void UpdateSize()
         {
+            UpdateTotalPrice();
             if (rdSmallSize.Checked)
             {
                 SizeTextBox.Text = rdSmallSize.Text;
-                totalTags += Convert.ToInt32(rdSmallSize.Tag);
+                return;
+            }
+            if (rdMediumSize.Checked)
+            {
+                SizeTextBox.Text = rdMediumSize.Text;
+                return;
+            }
+            if (rdLargeSize.Checked)
+            {
+                SizeTextBox.Text = rdLargeSize.Text;
+                return;
             }
 
-            UpdateTotalPrice();
+
+        }
+        private void rdSmallSize_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSize();
         }
 
         private void rdMediumSize_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdMediumSize.Checked)
-            {
-                SizeTextBox.Text = rdMediumSize.Text;
-            }
-            UpdateTotalPrice();
+            UpdateSize();
         }
 
         private void rdLargeSize_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdLargeSize.Checked)
-            {
-                SizeTextBox.Text = rdLargeSize.Text;
-            }
-            UpdateTotalPrice();
+            UpdateSize();
         }
 
         private void rdThinCrust_CheckedChanged(object sender, EventArgs e)
@@ -191,7 +198,7 @@ namespace PizzaProject
                 total += Convert.ToInt32(chkGreenPepper.Tag);
 
             // Display price
-            priceTextBox.Text = total.ToString() + "$";
+            priceTextBox.Text = "$" + total.ToString();
         }
 
         private void btnOrderPizza_Click(object sender, EventArgs e)
