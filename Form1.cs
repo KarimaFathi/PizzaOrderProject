@@ -59,22 +59,31 @@ namespace PizzaProject
             UpdateSize();
         }
 
-        private void rdThinCrust_CheckedChanged(object sender, EventArgs e)
+        private void UpdateCrustType()
         {
-            if( rdThinCrust.Checked)
+            UpdateTotalPrice();
+
+            if (rdThinCrust.Checked)
             {
                 CrustTextBox.Text = rdThinCrust.Text;
+                return;
             }
-            UpdateTotalPrice();
+            if (rdThickCrust.Checked)
+            {
+                CrustTextBox.Text = rdThickCrust.Text;
+                return;
+            }
+
+        }
+        private void rdThinCrust_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateCrustType();
         }
 
         private void rdThickCrust_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdThickCrust.Checked)
-            {
-                CrustTextBox.Text = rdThickCrust.Text;
-            }
-            UpdateTotalPrice();
+            UpdateCrustType();
+
         }
 
         private void chkExtraCheese_CheckedChanged(object sender, EventArgs e)
