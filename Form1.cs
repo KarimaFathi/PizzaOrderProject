@@ -151,18 +151,29 @@ namespace PizzaProject
             UpdateTotalPrice();
         }
 
+        private void updateWhereToEat()
+        {
+            if (rdEatIn.Checked)
+            {
+                WhereToEatTextBox.Text = rdEatIn.Text;
+                return;
+            }
+            if (rdEatOut.Checked)
+            {
+                WhereToEatTextBox.Text = rdEatOut.Text;
+                return;
+            }
+
+        }
+
         private void rdEatIn_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdEatIn.Checked)
-                WhereToEatTextBox.Text = rdEatIn.Text;
-         
+            updateWhereToEat();
         }
 
         private void rdEatOut_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdEatOut.Checked)
-                  WhereToEatTextBox.Text = rdEatOut.Text;
-           
+            updateWhereToEat();
         }
 
         private void UpdateTotalPrice()
