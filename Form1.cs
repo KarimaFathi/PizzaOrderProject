@@ -20,9 +20,18 @@ namespace PizzaProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            UpdateOrderSummary();
         }
 
+        void UpdateOrderSummary()
+        {
+            UpdateSize();
+            UpdateToppings();
+            UpdateCrustType();
+            updateWhereToEat();
+            UpdateTotalPrice();
+
+        }
         private void UpdateSize()
         {
             UpdateTotalPrice();
@@ -127,6 +136,7 @@ namespace PizzaProject
             {
                 toppings = "No toppings.";
             }
+            ToppingsTextBox.Text = toppings;
         }
         private void chkExtraCheese_CheckedChanged(object sender, EventArgs e)
         {
@@ -221,12 +231,19 @@ namespace PizzaProject
 
         private void btnOrderPizza_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure ? ", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.OK)
+            if (MessageBox.Show("Do you confirm your order ? ", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.OK)
             {
+                MessageBox.Show("Order Placed Successfully", "Success",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnOrderPizza.Enabled = false;
                 grpCrustType.Enabled = false;
                 grpSize.Enabled = false;
                 grpWhereToEat.Enabled = false;
                 grpToppings.Enabled = false;
+            } else
+            {
+                MessageBox.Show("Update your order", "Update",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
            
         }

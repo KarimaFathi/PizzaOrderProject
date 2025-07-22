@@ -123,7 +123,6 @@
             this.rdSmallSize.Name = "rdSmallSize";
             this.rdSmallSize.Size = new System.Drawing.Size(73, 24);
             this.rdSmallSize.TabIndex = 0;
-            this.rdSmallSize.TabStop = true;
             this.rdSmallSize.Tag = "5";
             this.rdSmallSize.Text = "Small";
             this.rdSmallSize.UseVisualStyleBackColor = true;
@@ -163,7 +162,6 @@
             this.rdThinCrust.Name = "rdThinCrust";
             this.rdThinCrust.Size = new System.Drawing.Size(103, 24);
             this.rdThinCrust.TabIndex = 0;
-            this.rdThinCrust.TabStop = true;
             this.rdThinCrust.Tag = "5";
             this.rdThinCrust.Text = "Thin crust";
             this.rdThinCrust.UseVisualStyleBackColor = true;
@@ -289,7 +287,6 @@
             this.rdEatIn.Name = "rdEatIn";
             this.rdEatIn.Size = new System.Drawing.Size(75, 24);
             this.rdEatIn.TabIndex = 0;
-            this.rdEatIn.TabStop = true;
             this.rdEatIn.Text = "Eat in";
             this.rdEatIn.UseVisualStyleBackColor = true;
             this.rdEatIn.CheckedChanged += new System.EventHandler(this.rdEatIn_CheckedChanged);
