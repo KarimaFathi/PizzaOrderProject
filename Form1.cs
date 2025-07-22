@@ -86,78 +86,76 @@ namespace PizzaProject
 
         }
 
-        private void chkExtraCheese_CheckedChanged(object sender, EventArgs e)
+
+        private void UpdateToppings()
         {
+            UpdateTotalPrice();
+            string toppings = "";
             if (chkExtraCheese.Checked)
             {
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace("No toppings !", "");
-                ToppingsTextBox.Text += chkExtraCheese.Text + ", ";
+                toppings += ", " + chkExtraCheese.Text;
             }
-            else
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace(chkExtraCheese.Text + ", ", "");
-            UpdateTotalPrice();
+
+            if (chkMushrooms.Checked)
+            {
+                toppings += ", " + chkMushrooms.Text;
+            }
+
+            if (chkTomatoes.Checked)
+            {
+                toppings += ", " + chkTomatoes.Text;
+            }
+            if (chkOnion.Checked)
+            {
+                toppings += ", " + chkOnion.Text;
+            }
+            if (chkOlives.Checked)
+            {
+                toppings += ", " + chkOlives.Text;
+            }
+            if (chkGreenPepper.Checked)
+            {
+                toppings += ", " + chkGreenPepper.Text;
+            }
+            
+            if(toppings.StartsWith(","))
+            {
+                toppings = toppings.Substring(1).Trim();
+            }
+
+            if(toppings == "")
+            {
+                toppings = "No toppings.";
+            }
+        }
+        private void chkExtraCheese_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateToppings();
         }
 
         private void chkMushrooms_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkMushrooms.Checked)
-            {
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace("No toppings !", "");
-                ToppingsTextBox.Text += chkMushrooms.Text + ", ";
-            }
-            else
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace(chkMushrooms.Text + ", ", "");
-            UpdateTotalPrice();
+            UpdateToppings();
         }
 
         private void chkTomatoes_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkTomatoes.Checked)
-            {
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace("No toppings !", "");
-                ToppingsTextBox.Text += chkTomatoes.Text + ", ";
-            }
-            else
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace(chkTomatoes.Text + ", ", "");
-            UpdateTotalPrice();
+            UpdateToppings();
         }
 
         private void chkOnion_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkOnion.Checked)
-            {
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace("No toppings !", "");
-
-                ToppingsTextBox.Text += chkOnion.Text + ", ";
-            }
-            else
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace(chkOnion.Text + ", ", "");
-            UpdateTotalPrice();
+            UpdateToppings();
         }
 
         private void chkOlives_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkOlives.Checked)
-            {
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace("No toppings !", "");
-                ToppingsTextBox.Text += chkOlives.Text + ", ";
-            }
-            else
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace(chkOlives.Text + ", ", "");
-            UpdateTotalPrice();
+            UpdateToppings();
         }
 
         private void chkGreenPepper_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkGreenPepper.Checked)
-            {
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace("No toppings !", "");
-
-                ToppingsTextBox.Text += chkGreenPepper.Text + " ";
-            }
-            else
-                ToppingsTextBox.Text = ToppingsTextBox.Text.Replace(chkGreenPepper.Text + " ", "");
-            UpdateTotalPrice();
+            UpdateToppings();
         }
 
         private void updateWhereToEat()
